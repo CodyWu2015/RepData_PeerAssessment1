@@ -344,6 +344,34 @@ head(t2)
 ## 6        0 2012-11-15 1.716981 weekday
 </code></pre>
 
+<p>Then we aggregate by weekday and weekend separately:</p>
+
+<pre><code class="r">t2a &lt;- aggregate(steps ~ interval, subset(t2, dayType==&quot;weekend&quot;), mean)
+t2b &lt;- aggregate(steps ~ interval, subset(t2, dayType==&quot;weekday&quot;), mean)
+head(t2a)
+</code></pre>
+
+<pre><code>##   interval     steps
+## 1        0 1.7169811
+## 2        5 0.3396226
+## 3       10 0.1320755
+## 4       15 0.1509434
+## 5       20 0.0754717
+## 6       25 5.2134434
+</code></pre>
+
+<pre><code class="r">head(t2b)
+</code></pre>
+
+<pre><code>##   interval     steps
+## 1        0 3.6247379
+## 2        5 0.7320755
+## 3       10 0.2846960
+## 4       15 0.3253669
+## 5       20 0.1626834
+## 6       25 3.2658281
+</code></pre>
+
 </body>
 
 </html>

@@ -92,3 +92,10 @@ t2$dayType <- as.factor(sapply(weekdays(t2$date), getDayType))
 head(t2)
 ```
 
+Then we aggregate by weekday and weekend separately:
+```{r aggregate}
+t2a <- aggregate(steps ~ interval, subset(t2, dayType=="weekend"), mean)
+t2b <- aggregate(steps ~ interval, subset(t2, dayType=="weekday"), mean)
+head(t2a)
+head(t2b)
+```
